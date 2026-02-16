@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>專業刷題系統</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>專業刷題系統</h1>
+    </header>
+
+    <section class="centered-block">
+      <div class="input-group">
+        <label for="fileInput" class="file-label">匯入題庫 (JSON)：</label>
+        <input type="file" id="fileInput" accept=".json" />
+      </div>
+      <div id="bankStatus">❌ 尚未匯入題庫</div>
+      <button id="btnClearBank" class="secondary-btn">清除快取題庫</button>
+    </section>
+
+    <section id="startArea" class="centered-block">
+      <div class="settings-group">
+        <label><input type="checkbox" id="chkRandomize" checked> 隨機出題</label>
+        <label><input type="checkbox" id="chkEnableTimer" checked> 啟用計時</label>
+      </div>
+      <button id="btnStartExam" class="primary-btn">開始測驗</button>
+    </section>
+
+    <section id="examArea" class="exam-area hidden">
+      <div class="timer-bar" id="timerBar">
+        <div class="timer-item">試卷總計：<span id="totalTimer">--</span>s</div>
+        <div class="timer-item">單題剩餘：<span id="qTimer">--</span>s</div>
+      </div>
+      <div class="progress"><span id="qProgress">題號 1 / --</span></div>
+      
+      <div class="card">
+        <h2 id="qtext"></h2>
+        <pre id="qcontent" class="code-box"></pre>
+        <form id="options" class="options-list"></form>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="btnPrev">上一題</button>
+        <button id="btnNext">下一題</button>
+        <button id="btnSubmit" class="submit-btn">交卷</button>
+      </div>
+    </section>
+
+    <section id="resultArea" class="result-area hidden">
+      <div class="centered-block">
+        <h2>測驗結果</h2>
+        <div id="scoreCard"></div>
+        <div id="detailList"></div>
+        <button id="btnRestart" class="primary-btn" onclick="location.reload()">重新測驗</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

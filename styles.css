@@ -1,0 +1,120 @@
+:root {
+  --primary: #2563eb;
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --error-bg: #fee2e2;
+  --error-text: #991b1b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center; /* 水平置中 */
+}
+
+.wrap {
+  width: 95%;
+  max-width: 800px; /* 平板與電腦版寬度限制 */
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-block, .card {
+  width: 100%;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* 程式碼區塊 RWD：手機平板不跑版 */
+.code-box {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  overflow-x: auto; /* 超出時出現捲軸 */
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre; /* 保留原始縮排 */
+  margin: 15px 0;
+}
+
+/* 選項清單排版 */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.opt:hover { background-color: #f9fafb; }
+
+/* 結果樣式：紅綠燈顏色 */
+.detail-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 8px solid #ccc;
+  text-align: left;
+}
+
+.detail-item.correct {
+  background-color: var(--success-bg);
+  border-left-color: var(--success-text);
+}
+
+.detail-item.wrong {
+  background-color: var(--error-bg);
+  border-left-color: var(--error-text);
+}
+
+.key-points-box {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0,0,0,0.1);
+  color: #4b5563;
+  font-size: 0.95em;
+}
+
+.hidden { display: none; }
+
+/* 按鈕樣式 */
+button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary-btn { background: var(--primary); color: white; }
+.submit-btn { background: #ef4444; color: white; }
+
+@media (max-width: 600px) {
+  .nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .submit-btn { grid-column: span 2; }
+}
